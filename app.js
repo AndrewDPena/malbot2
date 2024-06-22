@@ -1,20 +1,15 @@
- const { Client, Intents } = require('discord.js');
- const client = new Client   ({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const { token } = require('./configs/token.json');
+const { Client, Events, GatewayIntentBits } = require('discord.js');
 
- client.on('message', message => {
-     if (message.content === 'hello') {
-         message.channel.send('Hello World~!');
-     }
-     if (message.content === 'testbot') {
-         message.channel.send("Hi! I'm up and Running~!");
-     }
-     if (message.content === 'ping') {
-         message.channel.send('Pong~!');
-     } 
- })
+// Create a new client instance
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
- client.once('ready', () => {
-     console.log('The Discord Bot is Ready!');
- })
+// When the client is ready, run this code (only once).
+// The distinction between `client: Client<boolean>` and `readyClient: Client<true>` is important for TypeScript developers.
+// It makes some properties non-nullable.
+client.once(Events.ClientReady, readyClient => {
+	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
+});
 
- client.login('<YOUR-BOT-TOKEN>')
+// Log in to Discord with your client's token
+client.login(token);

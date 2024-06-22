@@ -23,5 +23,5 @@
   "homepage": "https://github.com/AndrewDPena/malbot2#readme",
   "dependencies": {
     "discord.js": "^14.15.3"
-  },
+  }
 }
