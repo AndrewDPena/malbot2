@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/AndrewDPena/malbot2/issues"
   },
-  "homepage": "https://github.com/AndrewDPena/malbot2#readme"
+  "homepage": "https://github.com/AndrewDPena/malbot2#readme",
+  "dependencies": {
+    "discord.js": "^14.15.3"
+  },
 }
